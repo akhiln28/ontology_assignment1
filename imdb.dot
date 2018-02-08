@@ -1,0 +1,47 @@
+digraph g{
+    IMDB[label="IMDB"]
+    IMDB_table[label = "<f0>Movies|<f1>TVshows" shape = "record"]
+    IMDB->IMDB_table:f0
+
+    Movies_table[label = "Movie+" shape = "record"]
+    IMDB_table:f0->Movies_table
+
+    Movie_table[label = "<f0> Title| <f1>Crew| <f2> Genres| <f3> Description| <f4> Rating" shape = "record"]
+    Movies_table->Movie_table:f0
+
+    Crew_table[label="<f0> Director| <f1> Stars" shape = "record"]
+    Movie_table:f1->Crew_table:f0
+
+    Genres_table[label = "Genre+" shape = "record"]
+    Movie_table:f2->Genres_table
+
+    Description_table[label = "<f0> Language| <f1> year" shape = "record"]
+    Movie_table:f3->Description_table:f0
+
+    TVshows_table[label = "TVshow+" shape = "record"]
+    IMDB_table:f1->TVshows_table
+
+    TVshow_table[label = "<f0> Title| <f1> Crew| <f2> Genres| <f3> Seasons| <f4> Description| <f5> Rating" shape = "record"]
+    TVshows_table->TVshow_table:f0
+
+    Crew_table2[label = "<f0> Director| <f1> Stars" shape = "record"]
+    TVshow_table:f1->Crew_table2:f0
+
+    Genres_table2[label = "Genre+" shape = "record"]
+    TVshow_table:f2->Genres_table2
+
+    Seasons_table[label = "<f0> Season+| <f1> NoOfSeasons" shape = "record"]    
+    TVshow_table:f3->Seasons_table:f0
+
+    Season_table[label = "<f0> Episodes| <f1> NoOfEpisodes| <f2> Rating" shape = "record"]
+    Seasons_table:f0->Season_table:f0
+
+    Episodes_table[label = "Episode+" shape = "record"]
+    Season_table:f0->Episodes_table
+    
+    Episode_table[label = "<f0> Title| <f1> Rating" shape = "record"]
+    Episodes_table->Episode_table:f0
+
+    Description_table2[label = "<f0> Language| <f1> year" shape = "record"]
+    TVshow_table:f4->Description_table2:f0
+}
