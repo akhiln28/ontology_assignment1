@@ -1,0 +1,90 @@
+<IMDB>
+    <Movies>
+        <Movie id = "M1">
+            <Title> "The henchman"</Title>
+            <Crew>
+                <Director>
+                    <Name>"The Director"</Name>
+                    <Birthdate>"1956-05-28"</Birthdate>
+                </Director>
+                <Stars>
+                    <Star>
+                        <Name>"First actor"</Name>
+                        <Birthdate>"1991-01-23"</Birthdate>
+                    </Star>
+                    <Star>
+                        <Name>"First actor"</Name>
+                        <Birthdate>"1991-01-23"</Birthdate>
+                    </Star>
+                </Stars>
+            </Crew>
+            <Genres>
+                <Genre>"action"</Genre>
+                <Genre>"adventure"</Genre>
+                <Genre>"thriller"</Genre>
+                <Genre>"drama"</Genre>
+            </Genres>
+            <Description>
+                <Runtime>90</Runtime>
+                <Year>2005</Year>
+            </Description>
+            <Rating>7.8</Rating>
+            <Sequels>
+                <ref:Movie ref="M1"/>
+            </Sequels>
+            <Previous>
+                <ref:Movie ref="M2"/>
+            </Previous>
+        </Movie>
+    </Movies>
+    <Tvshows>
+        <Tvshow>
+            <Title>"GOT"</Title>
+            <Crew>
+                <Director>
+                    <Name>"The Director"</Name>
+                    <Birthdate>"1956-05-28"</Birthdate>
+                </Director>
+                <Stars>
+                    <Star>
+                        <Name>"First actor"</Name>
+                        <Birthdate>"1991-01-23"</Birthdate>
+                    </Star>
+                    <Star>
+                        <Name>"First actor"</Name>
+                        <Birthdate>"1991-01-23"</Birthdate>
+                    </Star>
+                </Stars>
+            </Crew>
+            <Genres>
+                <Genre>"action"</Genre>
+                <Genre>"adventure"</Genre>
+                <Genre>"thriller"</Genre>
+                <Genre>"drama"</Genre>
+            </Genres>
+            <Seasons>
+                <NoOfSeasons>9</NoOfSeasons>
+                <Season>
+                    <Episodes>
+                        <Episode>
+                            <Title>"The episode title"</Title>
+                            <Rating>7.8</Rating>
+                        </Episode>
+                        <Episode>
+                            <Title>"The second episode title"</Title>
+                            <Rating>8</Rating>
+                        </Episode>
+                    </Episodes>
+                    <NoOfEpisodes>23</NoOfEpisodes>
+                    <Year>2009</Year>
+                    <Rating>7.9</Rating>
+                </Season>
+            </Seasons>
+            <Description>
+                <Runtime>100</Runtime>
+                <Year>2010</Year>
+            </Description>
+            <Rating>7.9</Rating>
+        </Tvshow>
+    </Tvshows>
+</IMDB>
