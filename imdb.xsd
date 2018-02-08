@@ -11,10 +11,49 @@
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name = "Title" type = "xs:string"></xs:element>
-                                        <xs:element name = "Crew" type = "xs:string"></xs:element>
-                                        <xs:element name = "Genres" type = "xs:string"></xs:element>
-                                        <xs:element name = "Description" type = "xs:string"></xs:element>
-                                        <xs:element name = "Rating" type = "xs:string"></xs:element>
+                                        <xs:element name = "Crew">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "Director" type = "xs:string"></xs:element>
+                                                    <xs:element name = "Stars">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                    <xs:element name = "Star"  minOccurs = "1" maxOccurs = "unbounded">
+                                                                        <xs:complexType>
+                                                                            <xs:sequence>
+                                                                                <xs:element name = "Name" type = "xs:string"></xs:element>
+                                                                                <xs:element name = "BirthDate" type = "xs:date"></xs:element>
+                                                                            </xs:sequence>
+                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name = "Genres">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "Genre"  minOccurs = "1" maxOccurs = "unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name = "Name" type = "xs:string"></xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name = "Description" >
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "Year" type = "xs:integer"></xs:element>
+                                                    <xs:element name = "Runtime" type = "xs:integer"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name = "Rating" type = "xs:decimal"></xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
@@ -28,10 +67,78 @@
                                 <xs:complexType>
                                     <xs:sequence>
                                         <xs:element name = "Title" type = "xs:string"></xs:element>
-                                        <xs:element name = "Crew" type = "xs:string"></xs:element>
-                                        <xs:element name = "Genres" type = "xs:string"></xs:element>
-                                        <xs:element name = "Seasons" type = "xs:string"></xs:element>
-                                        <xs:element name = "Description" type = "xs:string"></xs:element>
+                                        <xs:element name = "Crew">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "Director" type = "xs:string"></xs:element>
+                                                    <xs:element name = "Stars">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                    <xs:element name = "Star"  minOccurs = "1" maxOccurs = "unbounded">
+                                                                        <xs:complexType>
+                                                                            <xs:sequence>
+                                                                                <xs:element name = "Name" type = "xs:string"></xs:element>
+                                                                                <xs:element name = "BirthDate" type = "xs:date"></xs:element>
+                                                                            </xs:sequence>
+                                                                        </xs:complexType>
+                                                                    </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name = "Genres">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "Genre"  minOccurs = "1" maxOccurs = "unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name = "name" type = "xs:string"></xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name = "Seasons">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "No_of_Seasons" type = "xs:integer"></xs:element>
+                                                    <xs:element name = "Season" minOccurs = "1" maxOccurs = "unbounded">
+                                                    	<xs:complexType>
+                                                    		<xs:sequence>
+		                                                        <xs:element name = "Episodes">
+		                                                        	<xs:complexType>
+		                                                        		<xs:sequence>
+		                                                        			<xs:element name = "Episode" minOccurs = "1" maxOccurs = "unbounded">
+		                                                        				<xs:complexType>
+		                                                        					<xs:sequence>
+		                                                        						<xs:element name = "Title" type = "xs:string"></xs:element>
+		                                                        						<xs:element name = "Rating" type = "xs:decimal"></xs:element>
+		                                                        					</xs:sequence>
+		                                                        				</xs:complexType>
+		                                                        			</xs:element>	
+		                                                        		</xs:sequence>
+		                                                        	</xs:complexType>
+		                                                        </xs:element>
+                                                    		    <xs:element name = "No_of_Episodes" type = "xs:integer"></xs:element>
+                                                    		    <xs:element name = "Rating" type = "xs:decimal"></xs:element>
+		                                                    </xs:sequence>
+		                                                </xs:complexType>    
+                                                  
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name = "Description" >
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name = "Year" type = "xs:integer"></xs:element>
+                                                    <xs:element name = "Runtime" type = "xs:integer"></xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>
