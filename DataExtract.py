@@ -32,11 +32,30 @@ for i in range(0,10):
 	rating = " "
 	if(rateDF.empty==False):
 		rating = rateDF.averageRating.iloc[0]  #np.float
+	#generate xml
 	Title = ET.SubElement(movie,"Title")
 	Title.text = ptitle
+	Crew = ET.SubElement(movie,"Crew")
+	Director = ET.SubElement(Crew,"Director")
+	#get director info
+	dirDF =  tittleCrew[ tittleCrew['tconst']== tconst]
+	if(dirDF.empty==False):
+		dirIDList = (dirDF.directors.iloc[0]).split(',')
+		dirID = dirIDList[0]
+		dirNameDF = nameBasics[nameBasics['nconst']== dirID]
+		if(dirNameDF.empty==False):
+			dirName = dirNameDF.primaryName.iloc[0]
+			Director.text = dirName
+		else:
+			Director.text = ""
+	else :
+		Director.text = ""
+	#add genre
 	Genre = ET.SubElement(movie,"Genres")
-	genre = ET.SubElement(Genre,"Genre")
-	genre.text = genres
+	genreList = genres.split(',')
+	for gtext in genreList :
+		genre = ET.SubElement(Genre,"Genre")
+		genre.text = gtext
 	Desc = ET.SubElement(movie,"Description")
 	Year = ET.SubElement(Desc,"Year")
 	Year.text = str(year)
@@ -53,6 +72,6 @@ for i in range(0,10):
 reload(sys)
 sys.setdefaultencoding('utf8')
 tree = ET.ElementTree(root)
-tree.write("data.xml")
+tree.write("GenIMDBdata.xml")
 
 
