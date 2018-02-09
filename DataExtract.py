@@ -41,7 +41,7 @@ for i in range(0,10):
 	dirDF =  tittleCrew[ tittleCrew['tconst']== tconst]
 	if(dirDF.empty==False):
 		dirIDList = (dirDF.directors.iloc[0]).split(',')
-		dirID = dirIDList[0]
+		dirID = dirIDList[0]										#TODO one or more Directors
 		dirNameDF = nameBasics[nameBasics['nconst']== dirID]
 		if(dirNameDF.empty==False):
 			dirName = dirNameDF.primaryName.iloc[0]
@@ -50,6 +50,21 @@ for i in range(0,10):
 			Director.text = ""
 	else :
 		Director.text = ""
+	#add casts
+	Stars = ET.SubElement(Crew,"Stars")
+	castDF = tittlePrinciple[tittlePrinciple['tconst']==tconst]
+	if(castDF.empty==False):
+		castIDList = (castDF.principalCast.iloc[0]).split(',');
+		for castID in castIDList:
+			castNameDF = nameBasics[nameBasics['nconst']== castID]
+			if(castNameDF.empty==False):
+				castName = castNameDF.primaryName.iloc[0]
+				castBirtyear = castNameDF.birthYear.iloc[0]
+				star = ET.SubElement(Stars,"star")
+				sname = ET.SubElement(star,"name")
+				sdob = ET.SubElement(star,"BirthYear")
+				sname.text = castName
+				sdob.text = castBirtyear
 	#add genre
 	Genre = ET.SubElement(movie,"Genres")
 	genreList = genres.split(',')
