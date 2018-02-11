@@ -114,8 +114,8 @@
 </g>
 <!-- Cast_table -->
 <g id="node6" class="node"><title>Cast_table</title>
-<polygon fill="none" stroke="black" points="75,-146.5 75,-182.5 170,-182.5 170,-146.5 75,-146.5"/>
-<text text-anchor="middle" x="122.5" y="-160.8" font-family="Times New Roman,serif" font-size="14.00">Celeb+ (idref)</text>
+<polygon fill="none" stroke="black" points="84,-146.5 84,-182.5 161,-182.5 161,-146.5 84,-146.5"/>
+<text text-anchor="middle" x="122.5" y="-160.8" font-family="Times New Roman,serif" font-size="14.00">CelebRef+</text>
 </g>
 <!-- Crew_table&#45;&gt;Cast_table -->
 <g id="edge5" class="edge"><title>Crew_table:f1&#45;&gt;Cast_table</title>
@@ -194,8 +194,8 @@
 </g>
 <!-- Cast_table2 -->
 <g id="node12" class="node"><title>Cast_table2</title>
-<polygon fill="none" stroke="black" points="446,-146.5 446,-182.5 541,-182.5 541,-146.5 446,-146.5"/>
-<text text-anchor="middle" x="493.5" y="-160.8" font-family="Times New Roman,serif" font-size="14.00">Celeb+ (idref)</text>
+<polygon fill="none" stroke="black" points="455,-146.5 455,-182.5 532,-182.5 532,-146.5 455,-146.5"/>
+<text text-anchor="middle" x="493.5" y="-160.8" font-family="Times New Roman,serif" font-size="14.00">CelebRef+</text>
 </g>
 <!-- Crew_table2&#45;&gt;Cast_table2 -->
 <g id="edge11" class="edge"><title>Crew_table2:f1&#45;&gt;Cast_table2</title>
@@ -260,8 +260,8 @@
 </g>
 <!-- KnownFor_table -->
 <g id="node21" class="node"><title>KnownFor_table</title>
-<polygon fill="none" stroke="black" points="1145.5,-219.5 1145.5,-255.5 1233.5,-255.5 1233.5,-219.5 1145.5,-219.5"/>
-<text text-anchor="middle" x="1189.5" y="-233.8" font-family="Times New Roman,serif" font-size="14.00">Title+ (idref)</text>
+<polygon fill="none" stroke="black" points="1154.5,-219.5 1154.5,-255.5 1224.5,-255.5 1224.5,-219.5 1154.5,-219.5"/>
+<text text-anchor="middle" x="1189.5" y="-233.8" font-family="Times New Roman,serif" font-size="14.00">TitleRef+</text>
 </g>
 <!-- Actor_table&#45;&gt;KnownFor_table -->
 <g id="edge20" class="edge"><title>Actor_table:f3&#45;&gt;KnownFor_table:f0</title>
