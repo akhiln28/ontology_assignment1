@@ -9,10 +9,10 @@ digraph g{
     Movie_table[label = "<f0> Title| <f1>Crew| <f2> Genres| <f3> Description| <f4> Rating| <f5> att:MovieID" shape = "record"]
     Movies_table->Movie_table:f0
 
-    Crew_table[label="<f0> Director| <f1> Cast" shape = "record"]
+    Crew_table[label="<f0> Director (idref)| <f1> Cast" shape = "record"]
     Movie_table:f1->Crew_table:f0
 
-    Cast_table[label="Celeb+" shape = "record"]
+    Cast_table[label="Celeb+ (idref)" shape = "record"]
     Crew_table:f1->Cast_table
 
     Genres_table[label = "Genre+" shape = "record"]
@@ -33,10 +33,10 @@ digraph g{
     TVshow_table[label = "<f0> Title| <f1> Crew| <f2> Genres| <f3> Seasons| <f4> Description| <f5> Rating| <f6> att:TVShowID" shape = "record"]
     TVshows_table->TVshow_table:f0
 
-    Crew_table2[label = "<f0> Director| <f1> Cast" shape = "record"]
+    Crew_table2[label = "<f0> Director (idref)| <f1> Cast" shape = "record"]
     TVshow_table:f1->Crew_table2:f0
 
-    Cast_table2[label="Celeb+" shape = "record"]
+    Cast_table2[label="Celeb+ (idref)" shape = "record"]
     Crew_table2:f1->Cast_table2
 
     Genres_table2[label = "Genre+" shape = "record"]
@@ -63,6 +63,6 @@ digraph g{
     Actor_table[label="<f0> Name| <f1> BirthYear| <f2> PrimaryProfession| <f3> KnownFor| att:CelebID" shape = "record"]
     Actors_table->Actor_table:f1
 
-    KnownFor_table[label = "<f0> Movies| <f1> TvShows" shape = "record"]
+    KnownFor_table[label = "<f0> Title+ (idref)" shape = "record"]
     Actor_table:f3->KnownFor_table:f0
 }
