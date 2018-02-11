@@ -1,24 +1,24 @@
 digraph g{
     IMDB[label="IMDB"]
-    IMDB_table[label = "<f0>Movies|<f1>TVshows| <f2> Actors" shape = "record"]
+    IMDB_table[label = "<f0>Movies|<f1>TVshows| <f2> Celebs" shape = "record"]
     IMDB->IMDB_table:f0
 
     Movies_table[label = "Movie+" shape = "record"]
     IMDB_table:f0->Movies_table
 
-    Movie_table[label = "<f0> Title| <f1>Crew| <f2> Genres| <f3> Description| <f4> Rating| <f5> MovieID" shape = "record"]
+    Movie_table[label = "<f0> Title| <f1>Crew| <f2> Genres| <f3> Description| <f4> Rating| <f5> att:MovieID" shape = "record"]
     Movies_table->Movie_table:f0
 
-    Crew_table[label="<f0> Director| <f1> Stars" shape = "record"]
+    Crew_table[label="<f0> Director| <f1> Cast" shape = "record"]
     Movie_table:f1->Crew_table:f0
 
-    Stars_table[label="Star+" shape = "record"]
-    Crew_table:f1->Stars_table
+    Cast_table[label="Celeb+" shape = "record"]
+    Crew_table:f1->Cast_table
 
     Genres_table[label = "Genre+" shape = "record"]
     Movie_table:f2->Genres_table
 
-    Description_table[label = "<f0> Runtime| <f1> year" shape = "record"]
+    Description_table[label = "<f0> Runtime| <f1> Year" shape = "record"]
     Movie_table:f3->Description_table:f0
 
     // Sequels_table[label="Sequel+" shape = "record"]
@@ -30,14 +30,14 @@ digraph g{
     TVshows_table[label = "TVshow+" shape = "record"]
     IMDB_table:f1->TVshows_table
 
-    TVshow_table[label = "<f0> Title| <f1> Crew| <f2> Genres| <f3> Seasons| <f4> Description| <f5> Rating| <f6> TvShowID" shape = "record"]
+    TVshow_table[label = "<f0> Title| <f1> Crew| <f2> Genres| <f3> Seasons| <f4> Description| <f5> Rating| <f6> att:TVShowID" shape = "record"]
     TVshows_table->TVshow_table:f0
 
-    Crew_table2[label = "<f0> Director| <f1> Stars" shape = "record"]
+    Crew_table2[label = "<f0> Director| <f1> Cast" shape = "record"]
     TVshow_table:f1->Crew_table2:f0
 
-    Stars_table2[label="Star+" shape = "record"]
-    Crew_table2:f1->Stars_table2
+    Cast_table2[label="Celeb+" shape = "record"]
+    Crew_table2:f1->Cast_table2
 
     Genres_table2[label = "Genre+" shape = "record"]
     TVshow_table:f2->Genres_table2
@@ -54,13 +54,13 @@ digraph g{
     Episode_table[label = "<f0> Title| <f1> Rating" shape = "record"]
     Episodes_table->Episode_table:f0
 
-    Description_table2[label = "<f0> Runtime| <f1> year" shape = "record"]
+    Description_table2[label = "<f0> Runtime| <f1> StarYear| <f2> EndYear" shape = "record"]
     TVshow_table:f4->Description_table2:f0
 
-    Actors_table[label = "Actor+" shape = "record"]
+    Actors_table[label = "Celeb+" shape = "record"]
     IMDB_table:f2->Actors_table
 
-    Actor_table[label="<f0> Name| <f1> BirthYear| <f2> PrimaryProfession| <f3> KnownFor| ActorID" shape = "record"]
+    Actor_table[label="<f0> Name| <f1> BirthYear| <f2> PrimaryProfession| <f3> KnownFor| att:CelebID" shape = "record"]
     Actors_table->Actor_table:f1
 
     KnownFor_table[label = "<f0> Movies| <f1> TvShows" shape = "record"]
