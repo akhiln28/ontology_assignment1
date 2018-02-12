@@ -16,7 +16,10 @@ digraph g{
     Crew_table:f1->Cast_table
 
     Genres_table[label = "Genre+" shape = "record"]
-    Movie_table:f2->Genres_table
+    Movie_table:f2->Genres_table[style = dashed color = "grey"]
+
+    MainGenre[label = "MainGenre" shape = "record"]
+    Movie_table:f2->MainGenre[style = dashed color = "grey"]
 
     Description_table[label = "<f0> Runtime| <f1> Year" shape = "record"]
     Movie_table:f3->Description_table:f0
