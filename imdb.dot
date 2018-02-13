@@ -1,28 +1,53 @@
 digraph g{
     IMDB[label="IMDB"]
     IMDB_table[label = "<f0>Movies|<f1>TVshows| <f2> Celebs" shape = "record"]
-    IMDB->IMDB_table:f0
+    IMDB->IMDB_table
 
     Movies_table[label = "Movie+" shape = "record"]
     IMDB_table:f0->Movies_table
 
-    Movie_table[label = "<f0> Title| <f1>Crew| <f2> Genres| <f3> Description| <f4> Rating| <f5> att:MovieID" shape = "record"]
+    Movie_table[label = <<table border="0" cellspacing="0">
+                    <tr>
+                    <td port="port1" border="1">Title</td>
+                    <td port="port2" border="1">Crew</td>
+                    <td port="port3" border="1">Genres</td>
+                    <td port="port4" border="1">Rating</td>
+                    <td port="port5" border="1">Description</td>
+                    <td port="port6" border="1" ><font color = "Maroon">att:MovieID</font></td>
+                    </tr>
+                </table>> shape = "none"]
     Movies_table->Movie_table:f0
 
-    Crew_table[label="<f0> Director (idref)| <f1> Cast" shape = "record"]
-    Movie_table:f1->Crew_table:f0
+    Crew_table[label=<<table border="0" cellspacing="0">
+                    <tr>
+                    <td port="port1" border="1"><font color = "red">Director (idref)</font></td>
+                    <td port="port2" border="1">Cast</td>
+                    </tr>
+                </table>> shape = "none"]
+    Movie_table:port2->Crew_table:port1
 
-    Cast_table[label="CelebRef+" shape = "record"]
-    Crew_table:f1->Cast_table
+    Cast_table[label="CelebRef+" shape = "record" fontcolor = "red"]
+    Crew_table:port2->Cast_table
 
     Genres_table[label = "Genre+" shape = "record"]
-    Movie_table:f2->Genres_table[style = dashed color = "grey"]
+    Movie_table:port3->Genres_table[style = dashed color = "grey"]
 
     MainGenre[label = "MainGenre" shape = "record"]
-    Movie_table:f2->MainGenre[style = dashed color = "grey"]
+    Movie_table:port3->MainGenre[style = dashed color = "grey"]
 
     Description_table[label = "<f0> Runtime| <f1> Year" shape = "record"]
-    Movie_table:f3->Description_table:f0
+    Movie_table:port5->Description_table:f0
+
+    MainGenre_table[label = <<table border="0" cellspacing="0">
+                    <tr>
+                    <td port="port1" border="1">Action</td>
+                    <td port="port2" border="1">Adventure</td>
+                    <td port="port3" border="1">Drama</td>
+                    <td port="port4" border="1">Comedy</td>
+                    <td port="port5" border="1">Romance</td>
+                    </tr> 
+                    </table>> shape = "none"]
+    MainGenre->MainGenre_table
 
     // Sequels_table[label="Sequel+" shape = "record"]
     // Movie_table:f5->Sequels_table
@@ -31,41 +56,64 @@ digraph g{
     // Movie_table:f6->Prequels_table
 
     TVshows_table[label = "TVshow+" shape = "record"]
+
     IMDB_table:f1->TVshows_table
 
-    TVshow_table[label = "<f0> Title| <f1> Crew| <f2> Genres| <f3> Seasons| <f4> Description| <f5> Rating| <f6> att:TVShowID" shape = "record"]
-    TVshows_table->TVshow_table:f0
+    TVshow_table[label = <<table border="0" cellspacing="0">
+                    <tr>
+                    <td port="port1" border="1">Title </td>
+                    <td port="port2" border="1">Crew </td>
+                    <td port="port3" border="1">Genres </td>
+                    <td port="port4" border="1">Seasons </td>
+                    <td port="port5" border="1">Description </td>
+                    <td port="port5" border="1">Rating </td>
+                    <td port="port6" border="1" ><font color = "Maroon">att:TVshowID </font></td>
+                    </tr>
+                </table>> shape = "none"]
+    TVshows_table->TVshow_table:port1
 
-    Crew_table2[label = "<f0> Director (idref)| <f1> Cast" shape = "record"]
-    TVshow_table:f1->Crew_table2:f0
+    Crew_table2[label = <<table border="0" cellspacing="0">
+                    <tr>
+                    <td port="port1" border="1"><font color = "red">Director (idref)</font></td>
+                    <td port="port2" border="1" >cast</td>
+                    </tr>
+                </table>> shape = "none"]
+    TVshow_table:port2->Crew_table2:f0
 
-    Cast_table2[label="CelebRef+" shape = "record"]
-    Crew_table2:f1->Cast_table2
+    Cast_table2[label="CelebRef+" shape = "record" fontcolor = "red"]
+    Crew_table2:port2->Cast_table2
 
     Genres_table2[label = "Genre+" shape = "record"]
-    TVshow_table:f2->Genres_table2
+    TVshow_table:port3->Genres_table2
 
     Seasons_table[label = "<f0> Season+| <f1> NoOfSeasons" shape = "record"]    
-    TVshow_table:f3->Seasons_table:f0
-
-    Season_table[label = "<f0> Episodes| <f1> NoOfEpisodes| <f2> Rating| <f3> Year" shape = "record"]
-    Seasons_table:f0->Season_table:f0
-
-    Episodes_table[label = "Episode+" shape = "record"]
-    Season_table:f0->Episodes_table
-    
-    Episode_table[label = "<f0> Title| <f1> Rating" shape = "record"]
-    Episodes_table->Episode_table:f0
+    TVshow_table:port4->Seasons_table:f0
 
     Description_table2[label = "<f0> Runtime| <f1> StarYear| <f2> EndYear" shape = "record"]
-    TVshow_table:f4->Description_table2:f0
+    TVshow_table:port5->Description_table2
 
     Actors_table[label = "Celeb+" shape = "record"]
     IMDB_table:f2->Actors_table
 
-    Actor_table[label="<f0> Name| <f1> BirthYear| <f2> PrimaryProfession| <f3> KnownFor| att:CelebID" shape = "record"]
-    Actors_table->Actor_table:f1
+    {
+        rank = same;Crew_table2;MainGenre_table;
+    }
 
-    KnownFor_table[label = "<f0> TitleRef+" shape = "record"]
-    Actor_table:f3->KnownFor_table:f0
+    Actor_table[label=<<table border="0" cellspacing="0">
+                    <tr>
+                    <td port="port1" border="1">Name </td>
+                    <td port="port2" border="1">BirthYear </td>
+                    <td port="port3" border="1">PrimayProfession </td>
+                    <td port="port4" border="1">KnownFor </td>
+                    <td port="port5" border="1" ><font color = "Maroon">att:CelebID </font></td>
+                    </tr>
+                </table>> shape = "none"]
+    Actors_table->Actor_table:port1
+
+    KnownFor_table[label = "<f0> TitleRef+" shape = "record" fontcolor = "red"]
+    Actor_table:port4->KnownFor_table:f0
+
+    {
+        rank = same;Actor_table;Crew_table2;
+    }
 }
