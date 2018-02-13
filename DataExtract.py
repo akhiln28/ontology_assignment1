@@ -57,7 +57,7 @@ for i in range(0,10):
 	Stars = ET.SubElement(Crew,"Cast")
 	castDF = tittlePrinciple[tittlePrinciple['tconst']==tconst]
 	if(castDF.empty==False):
-		castIDList = (castDF.principalCast.iloc[0]).split(',');
+		castIDList = (castDF.principalCast.iloc[0]).split(',')
 		for castID in castIDList:
 			castIDT = ET.SubElement(Stars,"CelebRef")
 			castIDT.text = str(castID)
@@ -73,13 +73,13 @@ for i in range(0,10):
 	rtime = ET.SubElement(Desc,"RunTime")
 	rtime.text = runtime
 	Rate = ET.SubElement(movie,"Ratings")
-	Rate.text = str(rating);
+	Rate.text = str(rating)
 
 
 TVshows = ET.SubElement(root,'TVshows')
 
 #DF.empty , df[ df.col == 'val'] //for searching
-for i in range(0,10):
+for i in range(0,100):
 	TVshow = ET.SubElement(TVshows,"TVshow")
 
 	ptitle = tittleSeries.primaryTitle.iloc[i] #string
@@ -167,11 +167,11 @@ for i in range(0,10):
 			SratTag.text = str(Srate)
 			#rating for seasom
 	Rate = ET.SubElement(TVshow,"Ratings")
-	Rate.text = str(rating);
+	Rate.text = str(rating)
 
 
 Celebs = ET.SubElement(root,"Celebs")
-for i in range(0,100):
+for i in range(0,10000):
 	Celeb =  ET.SubElement(Celebs,"Celeb")
 	nconst = nameBasics.nconst.iloc[i]
 	Celeb.set("CelebID",str(nconst))
